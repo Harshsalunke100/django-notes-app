@@ -1,6 +1,10 @@
 <h2>Your Notes</h2>
 <a href="{% url 'note_create' %}">Add Note</a>
-<a href="{% url 'logout' %}">Logout</a>
+<form method="post" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <button type="submit">Logout</button>
+</form>
+
 
 <ul>
 {% for note in notes %}
